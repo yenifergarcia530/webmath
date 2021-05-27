@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+</!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name ="viewport" content="width=divice-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-compatible " content="ie=edge">
+	<title>web math</title>
+	<link rel="shortcut icon" href="imagenes/calculador1.png" type ="imagen/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+
+</head>
+<body>
+      <header>
+      	<nav>
+      	<a href="index1.html">Inicio</a>
+            <a href="fisica.html">fìsica </a>
+            <a href="estadistica.html">estadìstica</a>
+            <a href="binomial.html">calculadora </a>
+            
+      	</nav>
+      	<section class="textos-header">
+      		<h1>DISTRIBUCIÒN BINOMIAL</h1>
+      	</section> 
+      	<div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C150.00,150.00 351.74,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffff;"></path>
+      	</svg></div>
+      </header>
+</body>
+<body>
+  <section class="fisica2">
+  <h1>CALCULADORA BINOMIAL</h1><br><br>
+
+     <label>n</label><input type="number" name="" id="n" step="0.001" oninput="calcular()"><br><br>
+     <label>k</label><input type="number" name="" id="k" step="0.001" oninput="calcular()"><br><br>
+     <label>p</label><input type="number" name="" id="p" step="0.001" oninput="calcular()"><br><br>
+     <label>q</label><input type="number" name="" id="q" step="0.001" oninput="calcular()"><br><br>
+     <label>total: </label><input type="number" name="" id="total" step="0.001" ><br><br>
+  </section>
+</body>
+<script type="text/javascript">
+  
+  function calcular(){
+    try{
+      var a = parseFloat(document.getElementById("n").value),
+      b=parseFloat(document.getElementById("k").value),
+      c = parseFloat(document.getElementById("p").value),
+      d = parseFloat(document.getElementById("q").value);
+      var e=1,f=1,g,h,i,fac1=1,fac2=1,fac3=1;
+      
+      for(i=1;i<=a;i++){
+        fac1 = fac1 * i;
+      }
+       for(i=1;i<=b;i++){
+        fac2 = fac2 * i;
+      }
+        
+      for(i=1;i<=a-b;i++){
+        fac3 = fac3 * i;
+      }
+
+    for(i=0;i<b;i++){
+      e=e*c;
+    }
+    for(i=0;i<a-b;i++){
+      f=f*d;
+    }
+    g= fac2*fac3;
+    h= fac1/g;
+    
+
+      document.getElementById("total").value=h*e*f;
+    }catch (e){}
+  }
+</script>
+
+<section class="fisica2">
+  <br><br><h1>CALCULADORA HIPERGEOMETRICA</h1><br><br>
+  <label>N</label><input type="number" name="" id="N" step="0.001" oninput="calcu()"><br><br>
+     <label>K</label><input type="number" name="" id="K" step="0.001" oninput="calcu()"><br><br>
+      <label>n_</label><input type="number" name="" id="z" step="0.001" oninput="calcu()"><br><br>
+     <label>x</label><input type="number" name="" id="x" step="0.001" oninput="calcu()"><br><br>
+     <label>total: </label><input type="number" name="" id="tota" step="0.001" ><br><br>
+  </section>
+  <script type="text/javascript">
+  
+  function calcu(){
+    try{
+      var a = parseFloat(document.getElementById("N").value),
+      b=parseFloat(document.getElementById("K").value),
+      c = parseFloat(document.getElementById("z").value),
+      d = parseFloat(document.getElementById("x").value);
+      var e,f,g,h,i,j,t,l,m,s,o,p,q,r,fack=1,facx=1,fac3=1,faca=1,facb=1,fac4=1,fac5=1,fac6=1,fac7=1;
+      e=a-b;
+      f=c-d;
+      for(i=1;i<=b;i++){
+        fack = fack * i;
+      }
+      g=b-d;
+      for(i=1;i<=d;i++){
+        facx = facx * i;
+      }
+      for(i=1;i<=g;i++){
+        fac3 = fac3 * i;
+      }
+
+      h=facx * fac3;
+      j=fack/h;
+
+      for(i=1;i<=e;i++){
+        faca = faca * i;
+      }
+      t=e-f;
+      for(i=1;i<=f;i++){
+        facb = facb * i;
+      }
+      for(i=1;i<=t;i++){
+        fac4 = fac4 * i;
+      }
+      l=facb*fac4;
+      m=faca/l;
+
+      for(i=1;i<=a;i++){
+        fac5 = fac5 * i;
+      }
+      for(i=1;i<=c;i++){
+        fac6 = fac6 * i;
+      }
+      s=a-c;
+      for(i=1;i<=s;i++){
+        fac7 = fac7 * i;
+      }
+      o=fac6*fac7;
+      p=fac5/o;
+
+      q= j*m;
+      r=q/p;
+
+       document.getElementById("tota").value=r;
+
+
+      }catch (e){}
+  }
+</script>
